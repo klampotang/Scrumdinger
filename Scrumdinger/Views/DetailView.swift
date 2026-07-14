@@ -9,7 +9,7 @@ import SwiftUI
 import ThemeKit
 
 struct DetailView: View {
-    @Binding var scrum: DailyScrum // Need binding so this renders again when the user modifes scrum
+    @Binding var scrum: DailyScrum
     @State private var isPresentingEditView: Bool = false
     @State private var editingScrum = DailyScrum.emptyScrum
     
@@ -45,6 +45,20 @@ struct DetailView: View {
                     Label(attendee.name, systemImage: "person")
                 }
             }
+            
+            Section(header: Text("History")) {
+                if scrum.history.isEmpty {
+                    Label("No meetings yet", systemImage: "calendar.badge.exclamationmark")
+                } else {
+                    ForEach(scrum.history) { history in
+                        HStack {
+                            Image(systemName: "calendar")
+                            Text(history.date, style: .date)
+                        }
+                    }
+                }
+                
+            }
         }
         .navigationTitle(scrum.title)
         .toolbar {
@@ -54,24 +68,9 @@ struct DetailView: View {
             }
         }
         .sheet(isPresented: $isPresentingEditView) {
-            NavigationStack {
-                DetailEditView(scrum: $editingScrum)
-                    .navigationTitle(scrum.title)
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
-                                isPresentingEditView = false
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Save") {
-                                scrum = editingScrum
-                                isPresentingEditView = false
-                            }
-                        }
-                    }
+            EditScrumSheet(editingScrum: $editingScrum) {
+                scrum = editingScrum
             }
-            
         }
     }
 }

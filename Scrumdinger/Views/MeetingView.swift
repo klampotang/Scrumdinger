@@ -12,6 +12,7 @@ import TimerKit
 struct MeetingView: View {
     @Binding var scrum: DailyScrum
     @State var scrumTimer = ScrumTimer()
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 16.0)
@@ -25,16 +26,26 @@ struct MeetingView: View {
             .padding()
         }
         .onAppear() {
-            scrumTimer.reset(lengthInMinutes: scrum.lengthInMinutes, attendeeNames: scrum.attendees.map(\.name))
-            scrumTimer.startScrum()
+            startScrum()
         }
         .onDisappear() {
-            scrumTimer.stopScrum()
+            endScrum()
         }
         .padding()
         .foregroundColor(scrum.theme.accentColor)
         .navigationBarTitleDisplayMode(.inline)
 
+    }
+    
+    private func startScrum() {
+        scrumTimer.reset(lengthInMinutes: scrum.lengthInMinutes, attendeeNames: scrum.attendees.map(\.name))
+        scrumTimer.startScrum()
+    }
+    
+    private func endScrum() {
+        scrumTimer.stopScrum()
+        let history = History(attendees: scrum.attendees)
+        scrum.history.append(history)
     }
 }
 
