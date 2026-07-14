@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ThemeKit
 
 struct ThemeView: View {
     let theme: Theme
@@ -14,7 +15,7 @@ struct ThemeView: View {
         Text(theme.name)
             .padding(4)
             .foregroundColor(theme.accentColor)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .center)
             .background(Color(theme.mainColor))
             .clipShape(RoundedRectangle(cornerRadius: 4))
     }

@@ -5,6 +5,8 @@
 //  Created by Kelly Lampotang on 7/13/26.
 //
 
+import ThemeKit
+
 extension DailyScrum {
     static let sampleData: [DailyScrum] =
     [

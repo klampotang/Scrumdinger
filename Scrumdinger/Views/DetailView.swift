@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ThemeKit
 
 struct DetailView: View {
     @Binding var scrum: DailyScrum // Need binding so this renders again when the user modifes scrum
@@ -15,7 +16,7 @@ struct DetailView: View {
     var body: some View {
         List {
             Section(header: Text("Meeting Info")) {
-                NavigationLink(destination: MeetingView()) {
+                NavigationLink(destination: MeetingView(scrum: $scrum)) {
                     Label("Start Meeting", systemImage: "timer")
                         .font(.headline)
                         .foregroundColor(.accentColor)

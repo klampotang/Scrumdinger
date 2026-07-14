@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ThemeKit
 
 struct CardView: View {
     let scrum: DailyScrum

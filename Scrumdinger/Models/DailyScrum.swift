@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ThemeKit
 
 struct DailyScrum: Identifiable {
     let id: UUID

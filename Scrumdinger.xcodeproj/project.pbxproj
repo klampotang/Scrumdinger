@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		88A969BB3006C03000D97B7A /* TimerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88A969BA3006C03000D97B7A /* TimerKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		88A969773005985E00D97B7A /* Scrumdinger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scrumdinger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A969BB3006C03000D97B7A /* TimerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = Scrumdinger;
 			packageProductDependencies = (
+				88A969BA3006C03000D97B7A /* TimerKit */,
 			);
 			productName = Scrumdinger;
 			productReference = 88A969773005985E00D97B7A /* Scrumdinger.app */;
@@ -96,6 +102,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				88A969853005A34800D97B7A /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				88A969B93006C03000D97B7A /* XCLocalSwiftPackageReference "../../Downloads/ManagingStateAndLifeCycle/StartingProject/TutorialResources/TimerKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 88A969783005985E00D97B7A /* Products */;
@@ -332,6 +339,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		88A969B93006C03000D97B7A /* XCLocalSwiftPackageReference "../../Downloads/ManagingStateAndLifeCycle/StartingProject/TutorialResources/TimerKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../Downloads/ManagingStateAndLifeCycle/StartingProject/TutorialResources/TimerKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		88A969853005A34800D97B7A /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -342,6 +356,13 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		88A969BA3006C03000D97B7A /* TimerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 88A9696F3005985E00D97B7A /* Project object */;
 }

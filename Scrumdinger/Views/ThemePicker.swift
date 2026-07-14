@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ThemeKit
 
 struct ThemePicker: View {
     @Binding var selection: Theme
@@ -16,8 +17,8 @@ struct ThemePicker: View {
                 ThemeView(theme: theme)
                     .tag(theme)
             }
-            .pickerStyle(.navigationLink)
         }
+        .pickerStyle(.navigationLink)
     }
 }
 

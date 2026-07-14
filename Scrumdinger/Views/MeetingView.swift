@@ -6,45 +6,39 @@
 //
 
 import SwiftUI
+import ThemeKit
+import TimerKit
 
 struct MeetingView: View {
-    var theme: Theme = .bubblegum
+    @Binding var scrum: DailyScrum
+    @State var scrumTimer = ScrumTimer()
     var body: some View {
-        VStack {
-            ProgressView(value: 10, total: 15)
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Seconds elapsed")
-                        .font(.caption)
-                    Label("300", systemImage: "hourglass.tophalf.fill")
-                }
-                Spacer()
-                VStack(alignment: .trailing) {
-                    Text("Seconds remaining")
-                        .font(.caption)
-                    Label("600", systemImage: "hourglass.bottomhalf.fill")
-                }
+        ZStack {
+            RoundedRectangle(cornerRadius: 16.0)
+                .fill(scrum.theme.mainColor)
+            VStack {
+                MeetingHeaderView(secondsElapsed: scrumTimer.secondsElapsed, secondsRemaining: scrumTimer.secondsRemaining, theme: scrum.theme)
+                Circle()
+                    .strokeBorder(lineWidth: 24)
+                MeetingFooterView(speakers: scrumTimer.speakers, skipAction: scrumTimer.skipSpeaker)
             }
-            .accessibilityElement(children: .ignore)
-            .accessibilityLabel("Time remaining")
-            .accessibilityValue("10 minutes")
-            Circle()
-                .strokeBorder(lineWidth: 24)
-            HStack {
-                Text("Speaker 1 of 3")
-                Spacer()
-                Button(action: {}) {
-                    Image(systemName: "forward.fill")
-                }
-                .accessibilityLabel("Next speaker")
-            }
+            .padding()
+        }
+        .onAppear() {
+            scrumTimer.reset(lengthInMinutes: scrum.lengthInMinutes, attendeeNames: scrum.attendees.map(\.name))
+            scrumTimer.startScrum()
+        }
+        .onDisappear() {
+            scrumTimer.stopScrum()
         }
         .padding()
-        .foregroundColor(theme.accentColor)
-        .background(theme.mainColor)
+        .foregroundColor(scrum.theme.accentColor)
+        .navigationBarTitleDisplayMode(.inline)
+
     }
 }
 
 #Preview {
-    MeetingView()
+    @Previewable @State var scrum = DailyScrum.sampleData[0]
+    MeetingView(scrum: $scrum)
 }
