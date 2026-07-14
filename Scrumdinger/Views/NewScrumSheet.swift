@@ -8,18 +8,13 @@
 import SwiftUI
 
 struct NewScrumSheet: View {
-    @State private var newScrum = DailyScrum.emptyScrum
-    @Binding var scrums: [DailyScrum]
     var body: some View {
         NavigationStack {
-            DetailEditView(scrum: $newScrum) { dailyScrum in
-                scrums.append(dailyScrum)
-            }
+            DetailEditView(scrum: nil)
         }
     }
 }
 
 #Preview {
-    @Previewable @State var newScrum = DailyScrum.sampleData[0]
-    NewScrumSheet(scrums: .constant(DailyScrum.sampleData))
+    NewScrumSheet()
 }

@@ -8,9 +8,11 @@
 import SwiftUI
 import ThemeKit
 import TimerKit
+import SwiftData
 
 struct MeetingView: View {
-    @Binding var scrum: DailyScrum
+    let scrum: DailyScrum
+    @Environment(\.modelContext) private var context
     @State var scrumTimer = ScrumTimer()
     
     var body: some View {
@@ -46,10 +48,11 @@ struct MeetingView: View {
         scrumTimer.stopScrum()
         let history = History(attendees: scrum.attendees)
         scrum.history.append(history)
+        try? context.save()
     }
 }
 
 #Preview {
-    @Previewable @State var scrum = DailyScrum.sampleData[0]
-    MeetingView(scrum: $scrum)
+    let scrum = DailyScrum.sampleData[0]
+    MeetingView(scrum: scrum)
 }
