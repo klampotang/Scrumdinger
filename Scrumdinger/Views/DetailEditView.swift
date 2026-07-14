@@ -49,9 +49,9 @@ struct DetailEditView: View {
                     Slider(value: $lengthInMinutesDouble, in: 5...30, step: 1) {
                         Text("Length")
                     }
-                    .accessibilityValue("\(scrum.lengthInMinutes) minutes")
+                    .accessibilityValue("\(Int(lengthInMinutesDouble)) minutes")
                     Spacer()
-                    Text("\(scrum.lengthInMinutes) minutes")
+                    Text("\(Int(lengthInMinutesDouble)) minutes")
                         .accessibilityHidden(true)
                 }
                 ThemePicker(selection: $theme)

@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct EditScrumSheet: View {
-    @Binding var editingScrum: DailyScrum
-    var onSave: () -> Void
+    let editingScrum: DailyScrum
     var body: some View {
         NavigationStack {
-            DetailEditView(scrum: $editingScrum) { scrum in
-                editingScrum = scrum
-                onSave()
-            }
+            DetailEditView(scrum: editingScrum)
             .navigationTitle(editingScrum.title)
         }
     }
 }
 
 #Preview {
-    @Previewable @State var scrum = DailyScrum.sampleData[0]
-    EditScrumSheet(editingScrum: $scrum, onSave: {})
+    let scrum = DailyScrum.sampleData[0]
+    EditScrumSheet(editingScrum: scrum)
 }

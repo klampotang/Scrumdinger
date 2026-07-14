@@ -68,9 +68,7 @@ struct DetailView: View {
             }
         }
         .sheet(isPresented: $isPresentingEditView) {
-            EditScrumSheet(editingScrum: $editingScrum) {
-                scrum = editingScrum
-            }
+            EditScrumSheet(editingScrum: scrum)
         }
     }
 }
