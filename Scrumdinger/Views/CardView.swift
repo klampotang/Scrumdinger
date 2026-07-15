@@ -24,7 +24,7 @@ struct CardView: View {
                     .accessibilityLabel("\(attendeesCount) attendees")
                 Spacer()
                 Label("\(meetingLength)", systemImage: "clock")
-                    .padding(.trailing, 20)
+                    .padding(.trailing, CardConstants.trailingPadding)
                     .labelStyle(.trailingIcon)
                     .accessibilityLabel("\(meetingLength) minute meeting")
             }
@@ -35,7 +35,7 @@ struct CardView: View {
     }
 }
 
-#Preview(traits: .fixedLayout(width: 400, height: 60)) {
+#Preview(traits: .fixedLayout(width: CardConstants.width, height: CardConstants.height)) {
     let scrum = DailyScrum.sampleData[0]
     CardView(scrum: scrum)
         .background(scrum.theme.mainColor)

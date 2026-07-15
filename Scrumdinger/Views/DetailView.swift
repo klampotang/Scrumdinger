@@ -33,10 +33,10 @@ struct DetailView: View {
                     Label("Theme", systemImage: "paintpalette")
                     Spacer()
                     Text("\(scrum.theme.name)")
-                        .padding(4)
+                        .padding(LayoutConstants.smallPadding)
                         .foregroundColor(scrum.theme.accentColor)
                         .background(scrum.theme.mainColor)
-                        .cornerRadius(8)
+                        .cornerRadius(LayoutConstants.midCornerRadius)
                 }
                 .accessibilityElement(children: .combine)
             }

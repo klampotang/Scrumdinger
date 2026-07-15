@@ -13,11 +13,11 @@ struct ThemeView: View {
     
     var body: some View {
         Text(theme.name)
-            .padding(4)
+            .padding(LayoutConstants.smallPadding)
             .foregroundColor(theme.accentColor)
             .frame(maxWidth: .infinity, alignment: .center)
             .background(Color(theme.mainColor))
-            .clipShape(RoundedRectangle(cornerRadius: 4))
+            .clipShape(RoundedRectangle(cornerRadius: LayoutConstants.smallCornerRadius))
     }
 }
 

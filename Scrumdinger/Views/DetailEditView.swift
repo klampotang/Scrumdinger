@@ -29,7 +29,7 @@ struct DetailEditView: View {
             scrumToEdit = scrum
             isCreatingScrum = false
         } else {
-            scrumToEdit = DailyScrum(title: "", attendees: [], lengthInMinutes: 5, theme: .sky)
+            scrumToEdit = DailyScrum(title: "", attendees: [], lengthInMinutes: Int(MeetingConstants.defaultMeetingLength), theme: .sky)
             isCreatingScrum = true
         }
 
@@ -46,7 +46,7 @@ struct DetailEditView: View {
             Section(header: Text("Meeting Info")) {
                 TextField("Meeting Title", text: $title)
                 HStack {
-                    Slider(value: $lengthInMinutesDouble, in: 5...30, step: 1) {
+                    Slider(value: $lengthInMinutesDouble, in: MeetingConstants.defaultMeetingLength...MeetingConstants.maxMeetingLength, step: 1) {
                         Text("Length")
                     }
                     .accessibilityValue("\(Int(lengthInMinutesDouble)) minutes")

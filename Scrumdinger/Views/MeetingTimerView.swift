@@ -19,7 +19,7 @@ struct MeetingTimerView: View {
 
     var body: some View {
         Circle()
-            .strokeBorder(lineWidth: 24)
+            .strokeBorder(lineWidth: LayoutConstants.thickLineWidth)
             .overlay {
                 VStack {
                     Text("\(currentSpeaker)")
@@ -36,7 +36,7 @@ struct MeetingTimerView: View {
                     }) {
                         SpeakerArc(speakerIndex: index, totalSpeakers: speakers.count)
                             .rotation(Angle(degrees: -90))
-                            .stroke(theme.mainColor, lineWidth: 12)
+                            .stroke(theme.mainColor, lineWidth: LayoutConstants.thinLineWidth)
                     }
                 }
             }
