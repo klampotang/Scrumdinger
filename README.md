@@ -4,7 +4,7 @@ An iOS app for managing daily scrum meetings, built with SwiftUI. Based on Apple
 
 ## Demo
 
-<video src="Demo.mov" controls width="100%"></video>
+https://github.com/user-attachments/assets/ba2416f4-3bc3-4ec5-a862-1d6ead7a6252
 
 ## Features
 
