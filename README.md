@@ -2,6 +2,10 @@
 
 An iOS app for managing daily scrum meetings, built with SwiftUI. Based on Apple's [Scrumdinger tutorial](https://developer.apple.com/tutorials/app-dev-training).
 
+## Demo
+
+<video src="Demo.mov" controls width="100%"></video>
+
 ## Features
 
 - View a list of daily scrums with attendee count and meeting length
